@@ -1,0 +1,675 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-family: Poppins;
+  user-select: none;
+  background-image: linear-gradient(to top, rgb(212, 98, 37) 33%, rgb(14, 133, 107) 63%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
+svg {
+  width: 50%;
+  max-width: 10rem;
+  animation: rotate 3.6s linear infinite;
+}
+
+circle {
+  fill: none;
+  stroke: rgb(14, 133, 107);
+  stroke-width: 8px;
+  stroke-dasharray: 300;
+  animation: outline 2s cubic-bezier(0.77, 0, 0.18, 1) infinite;
+}
+
+@keyframes outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 300;
+  }
+  100% {
+    stroke-dashoffset: 600;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(-1turn);
+  }
+}
+::-webkit-scrollbar {
+  width: 12px;
+  transition: 0.5s;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(6, 40, 56, 0.986);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(14, 133, 107, 0.631372549);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0e856b;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: 0.5s;
+}
+
+body {
+  background-color: rgba(6, 40, 56, 0.986);
+  transition: 0.5s;
+}
+
+.hide {
+  display: none;
+}
+
+.burger_menu {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin: 50px;
+}
+.burger_menu #burgerMenu {
+  position: fixed;
+  cursor: pointer;
+}
+.burger_menu #burgerMenu div {
+  margin-bottom: 15px;
+  height: 4px;
+  width: 60px;
+  background-color: white;
+}
+.burger_menu #burgerMenu .line_one {
+  background-image: linear-gradient(to left, rgb(212, 98, 37) 33%, rgb(14, 133, 107) 63%);
+}
+.burger_menu #burgerMenu .line_two {
+  background-image: linear-gradient(to right, rgb(212, 98, 37) 33%, rgb(14, 133, 107) 63%);
+}
+.burger_menu i {
+  color: white;
+  font-size: 40px;
+}
+
+.burger_animation {
+  z-index: 9999;
+}
+.burger_animation .line_one {
+  -webkit-transform: rotate(-45deg) translate(-10px, 6px);
+  transform: rotate(-45deg) translate(-10px, 6px);
+  transition: all 0.5s;
+  background-image: linear-gradient(to left, rgb(255, 255, 255) 33%, rgb(255, 255, 255) 63%) !important;
+  opacity: 0.8;
+}
+.burger_animation .line_two {
+  background-image: linear-gradient(to left, rgb(255, 255, 255) 33%, rgb(255, 255, 255) 63%) !important;
+  opacity: 0.8;
+  -webkit-transform: rotate(45deg) translate(-5px, -6px);
+  transform: rotate(45deg) translate(-5px, -6px);
+  transition: all 0.5s;
+}
+
+.navbar {
+  display: none !important;
+  z-index: 999;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-image: linear-gradient(to left, rgb(212, 98, 37) 33%, rgb(14, 133, 107) 63%);
+  justify-content: center;
+  box-shadow: 0px 0px 80px 20px rgb(25, 37, 48);
+}
+.navbar ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.navbar ul li {
+  font-size: 120px;
+  list-style-type: none;
+}
+.navbar ul li a {
+  position: relative;
+  font-family: "Cinzel", serif;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  padding: 0px 10px;
+  text-shadow: -2px -11px 12px rgb(17, 37, 3);
+  transition: 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+}
+.navbar ul li a:hover {
+  text-shadow: 10px 15px 12px rgb(17, 37, 3);
+  transition: 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+}
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 0%;
+  top: 75px;
+  left: 0;
+  background-image: linear-gradient(to left, rgb(255, 255, 255) 33%, rgba(14, 133, 107, 0) 60%);
+  transition: 0.5s;
+}
+.navbar ul li a:hover:after {
+  box-shadow: 0px 0px 15px 5px rgb(255, 255, 255);
+  width: 100%;
+  transition: 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.1s;
+}
+
+.show {
+  display: flex !important;
+}
+
+.some {
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  -webkit-transition: 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+  -o-transition: 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+  transition: 0.4scubic-bezier 0.785, 0.135, 0.15, 0.86 0.3s;
+}
+
+.resume {
+  display: flex;
+  justify-content: center;
+}
+.resume a {
+  font-family: "DynaPuff", cursive;
+  background-image: linear-gradient(to left, rgb(212, 98, 37) 33%, rgb(14, 133, 107) 63%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: rgb(255, 255, 255);
+  padding: 10px 15px;
+  position: relative;
+  text-decoration: none;
+  font-size: 25px;
+}
+.resume a:hover {
+  transition: 0.5s;
+}
+.resume a:after {
+  content: "";
+  position: absolute;
+  top: 37px;
+  left: 15px;
+  width: 88%;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  transition: 0.7s;
+}
+.resume a::before {
+  content: "";
+  position: absolute;
+  bottom: 37px;
+  left: 15px;
+  width: 0%;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  transition: 0.7s;
+}
+.resume a:hover::after {
+  transition: 0.7s;
+  width: 0%;
+  box-shadow: none;
+}
+.resume a:hover::before {
+  width: 88%;
+  transition: 0.7s;
+}
+
+.into {
+  margin-top: 250px;
+  text-align: center;
+  color: black;
+  font-family: "DynaPuff", cursive;
+}
+.into h1 {
+  margin-top: 50px;
+  background-image: linear-gradient(to left, #ffffff 0%, #ffffff 0%, #ffffff 21%, #106e4f 52%, #ffffff 78%, #ffffff 100%);
+  background-size: 100%;
+  font-size: 2.5rem;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.into h1 span {
+  background-image: linear-gradient(to left, rgb(212, 98, 37) 33%, rgb(14, 133, 107) 63%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.into h2 {
+  margin-top: 30px;
+  color: white;
+  font-size: 30px;
+}
+
+.poster {
+  width: 150px;
+  margin: auto;
+}
+.poster img {
+  height: 150px;
+  filter: invert(100%);
+}
+
+.arrow_scroll {
+  width: 15px;
+  margin: 150px auto;
+}
+.arrow_scroll i {
+  font-size: 35px;
+  color: white;
+  animation-name: upAndDown;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes upAndDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+#project {
+  margin-top: 250px;
+}
+
+.project_title {
+  font-family: "Lobster", cursive;
+  font-size: 40px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 100px;
+  color: white;
+}
+
+.recent_proj {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.second {
+  margin-top: 100px;
+}
+
+.row a img {
+  width: 380px;
+  height: 200px;
+  border-radius: 10px;
+  -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.81));
+  transform-origin: center;
+  transform: perspective(800px) rotateY(25deg);
+  transition: 0.5s;
+}
+.row a img:hover {
+  transform: perspective(800px) rotateY(0deg);
+  transition: 0.5s;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin: 150px 0px;
+}
+.more button {
+  position: relative;
+  padding: 8px 50px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: rgba(253, 253, 253, 0);
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 22px;
+  font-family: "Lobster", cursive;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: 0.5s;
+  transform-origin: center;
+  transform: perspective(800px) rotateY(-25deg);
+  transition: 0.5s;
+}
+.more button:hover {
+  transform: perspective(800px) rotateY(0deg);
+  transition: 0.5s;
+}
+.more button::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 15px;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(194, 194, 194, 0.219);
+  transition: 0.3s;
+}
+.more button:hover::after {
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.more_proj {
+  display: none;
+}
+
+.skill_container {
+  margin: 500px auto 180px auto;
+}
+.skill_container h2 {
+  font-family: "DynaPuff", cursive;
+  font-size: 35px;
+  text-align: center;
+  color: white;
+  letter-spacing: 2px;
+  font-style: italic;
+}
+.skill_container .about {
+  font-family: "Lobster", cursive;
+  letter-spacing: 3px;
+  margin: 100px 0px;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+.skill_intro {
+  display: flex;
+  justify-content: center;
+}
+.skill_intro .card_box {
+  background-image: linear-gradient(to top, rgb(212, 98, 37) 33%, rgb(14, 133, 107) 63%);
+  background-size: 100%;
+}
+.skill_intro h1 {
+  color: rgb(12, 51, 32);
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 80px;
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+}
+.skill_intro h3 {
+  color: rgba(207, 207, 207, 0.87);
+  font-size: 25px;
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+}
+
+.skill_intro .card_box {
+  text-align: center;
+  border-radius: 30px;
+  width: 320px;
+  height: 440px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  transition: 0.5s;
+  -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.2666666667));
+}
+.skill_intro p {
+  margin: 10px 0px;
+  font-family: "Cinzel", serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: rgba(207, 207, 207, 0.87);
+}
+.skill_intro .card_box:nth-child(1) {
+  transform-origin: left;
+  transform: perspective(800px) rotateY(25deg);
+  transition: all 0.5s;
+}
+.skill_intro .card_box:nth-child(1):hover {
+  transform: perspective(800px) rotateY(-25deg);
+  transform-origin: left;
+  transition: all 0.5s;
+}
+.skill_intro .card_box:nth-child(2) {
+  transform: perspective(800px) rotateY(0);
+  transform-origin: center;
+  transition: all 0.5s;
+}
+.skill_intro .card_box:nth-child(2):hover {
+  transform: perspective(800px) rotateX(25deg);
+  transition: all 0.5s;
+}
+.skill_intro .card_box:nth-child(3) {
+  transform-origin: right;
+  transform: perspective(1000px) rotateY(-25deg);
+  transition: 0.5s;
+}
+.skill_intro .card_box:nth-child(3):hover {
+  transform: perspective(800px) rotateY(25deg);
+  transform-origin: right;
+  transition: 0.5s;
+}
+
+.second_box {
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 200px;
+}
+
+#education h2 {
+  font-family: "DynaPuff", cursive;
+  font-size: 35px;
+  margin: 250px 0px 150px 0px;
+  letter-spacing: 2px;
+  font-style: italic;
+  color: white;
+  text-align: center;
+}
+
+.work {
+  text-align: center;
+  border-radius: 30px;
+  width: 320px;
+  padding: 20px 10px;
+  transition: 0.5s;
+  background-image: linear-gradient(to bottom, rgb(212, 98, 37) 33%, rgb(14, 133, 107) 63%);
+  background-size: 100%;
+}
+.work h1 {
+  margin-bottom: 15px;
+}
+.work .work:nth-child(1) {
+  transform-origin: left;
+  transform: perspective(800px) rotateY(25deg);
+  transition: all 0.5s;
+}
+.work .work:nth-child(1):hover {
+  transform: perspective(800px) rotateY(-25deg);
+  transform-origin: left;
+  transition: all 0.5s;
+}
+.work .work:nth-child(2) {
+  transform: perspective(800px) rotateY(0);
+  transform-origin: center;
+  transition: all 0.5s;
+}
+.work .work:nth-child(2):hover {
+  transform: perspective(800px) rotateX(25deg);
+  transition: all 0.5s;
+}
+.work .role {
+  margin-bottom: 40px;
+}
+.work .digital, .work .step {
+  font-style: italic;
+  color: rgb(12, 51, 32);
+}
+
+.inner_card img {
+  height: 80px;
+}
+.inner_card .step2 {
+  margin-bottom: 20px;
+}
+.inner_card .step2 span {
+  font-style: italic;
+  color: rgb(12, 51, 32);
+}
+
+.about_box {
+  margin: 200px 0px;
+}
+
+.contact_box .icon_box {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  align-items: center;
+  top: 30%;
+  left: 35px;
+}
+.contact_box .icon_box a {
+  position: relative;
+  border-radius: 50%;
+  text-decoration: none;
+  margin-top: 20px;
+  box-shadow: inset 10px 0px 0px 0px #0E856B;
+  padding-top: 3px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.contact_box .icon_box a:hover {
+  box-shadow: inset -20px 0px 10px 0px #0e856b;
+  transition: 0.5s ease-in;
+}
+.contact_box .icon_box a img {
+  width: 50px;
+  filter: invert(60%);
+}
+
+.zindex {
+  z-index: 9999;
+}
+
+@media screen and (max-width: 767px) {
+  #burgerMenu {
+    right: 0;
+  }
+  .navbar ul li {
+    font-size: 50px;
+  }
+  .navbar ul li a:hover:after {
+    box-shadow: none;
+    width: 0%;
+  }
+  .into {
+    margin-top: 100px;
+  }
+  .into h2 {
+    margin-top: 50px;
+    font-size: 38px;
+  }
+  .recent_proj {
+    flex-direction: column;
+    align-items: center;
+  }
+  .recent_proj .row {
+    margin: 30px 0px;
+  }
+  .recent_proj .row a img {
+    -webkit-box-reflect: unset;
+    width: 290px;
+    transform: none;
+  }
+  .second {
+    margin-top: 0px;
+  }
+  .skill_intro {
+    flex-direction: column;
+    align-items: center;
+  }
+  .skill_intro .card_box {
+    -webkit-box-reflect: unset;
+    margin: 20px 0px;
+    transform: none !important;
+  }
+  .skill_intro .work {
+    margin: 20px 0px;
+  }
+  .contact_box .icon_box {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .recent_proj {
+    flex-direction: column;
+    align-items: center;
+  }
+  .second {
+    margin-top: 0;
+  }
+  .row {
+    margin-top: 20px;
+  }
+  .row a img {
+    width: 550px;
+    height: 300px;
+    -webkit-box-reflect: unset;
+    transform: none;
+  }
+}
